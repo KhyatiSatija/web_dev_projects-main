@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Gradient Text</title>
+    <style>
+        @keyframes gradientAnimation {
+            0% {
+                color: red;
+            }
+
+            25% {
+                color: yellow;
+            }
+
+            50% {
+                color: blue;
+            }
+
+            75% {
+                color: green;
+            }
+
+            100% {
+                color: red;
+            }
+        }
+
+        .gradient-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(45deg, red, yellow, blue, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gradientAnimation 4s linear infinite;
+        }
+
+        .box {
+            width: 300px;
+            height: 150px;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="gradient-text">This is a canvas</span>
+    </div>
+</body>
+
+</html>
