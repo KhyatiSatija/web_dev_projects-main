@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+
+div h1 {
+    font-family: "Libre Baskerville", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-size: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div img {
+    border: 5px solid white;
+    /*so that the img can fully fill the div  */
+    width: 100%;
+}
+
+#content {
+    color: white;
+    text-align: center;
+    /* to center the div */
+    width: 50%;
+    margin-left: 25%; 
+    margin-top: 100px;
+
+}
