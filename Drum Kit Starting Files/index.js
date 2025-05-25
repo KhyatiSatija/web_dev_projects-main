@@ -38,46 +38,56 @@
 
 //you're literally calculating document.querySelector("button") all the time inside the loop. instead just do it once outside the loop.
 
-var buttons = document.querySelectorAll("button.drum")
+var buttons = document.querySelectorAll("button.drum");
 
 var countOfButtons = document.querySelectorAll("button.drum").length;
 
 for(var i = 0; i < countOfButtons; i ++){
     buttons[i].addEventListener("click", function() {
-        // console.log(this);
-        var letter = this.textContent;
-        console.log(letter);
-        switch (letter) {
-            case "w":
-                var sound = new Audio("./sounds/crash.mp3");
-                break;
-            case "a" :
-                var sound = new Audio("./sounds/kick-bass.mp3");
-                break;
-            case "s":
-                var sound = new Audio("./sounds/snare.mp3");
-                break;
-            case "d":
-                var sound = new Audio("./sounds/tom-1.mp3");
-                break;
-            case "j" :
-                var sound = new Audio("./sounds/tom-2.mp3");
-                break;
-            case "k":
-                var sound = new Audio("./sounds/tom-3.mp3");
-                break;
-            case "l":
-                var sound = new Audio("./sounds/tom-4.mp3");
-                break;
-            default:
-                break;
-        }
-        sound.play();
-
-        // var sound = new Audio("./sounds/tom-" + (i + 1) + ".mp3");
-        // alert("i got clicked bitches!");
-        // sound.play();
-
+    // console.log(this);
+    var letter = this.textContent;
+    makeSound(letter);
+    animateButton(letter);
     });
 }
 
+document.addEventListener("keydown", function (event) {
+    makeSound(event.key);
+    animateButton(event.key);
+});
+
+function makeSound(key){
+    switch (key) {
+        case "w":
+            var sound = new Audio("./sounds/crash.mp3");
+            break;
+        case "a" :
+            var sound = new Audio("./sounds/kick-bass.mp3");
+            break;
+        case "s":
+            var sound = new Audio("./sounds/snare.mp3");
+            break;
+        case "d":
+            var sound = new Audio("./sounds/tom-1.mp3");
+            break;
+        case "j" :
+            var sound = new Audio("./sounds/tom-2.mp3");
+            break;
+        case "k":
+            var sound = new Audio("./sounds/tom-3.mp3");
+            break;
+        case "l":
+            var sound = new Audio("./sounds/tom-4.mp3");
+            break;
+        default:
+            break;
+    }
+    sound.play();
+};
+
+function animateButton(key){
+    document.querySelector("." + key).classList.add("pressed");
+    setTimeout(function(){
+        document.querySelector("." + key).classList.remove("pressed")
+    }, 100);
+}
